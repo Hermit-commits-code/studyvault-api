@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+
+# VSCode
+.vscode/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+# Testing
+.pytest_cache/
+
+# Coverage
+htmlcov/
+.coverage
+
+# Logs
+*.log
