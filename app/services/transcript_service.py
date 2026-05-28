@@ -9,35 +9,70 @@ def read_transcript(file_path: Path) -> str:
         return file.read()
 
 def create_notes(title: str, content: str) -> str:
-    notes = f"""# {title}
+    notes = f'''# {title}
 
 ## Summary
 
 {content}
 
+---
+
 ## Key Concepts
 
-- Add key concept here
-- Add key concept here
-- Add key concept here
+- Main concept from transcript
+- Supporting concept
+- Important programming idea
 
-## Code example
+---
+
+## Code Example
+
 ```python
-def example():
-    print("Replace with lesson example")
+# Replace with transcript-related example
+
+is_logged_in = True
+
+if is_logged_in:
+    print("Welcome back!")
+else:
+    print("Please log in.")
 ```
+
+---
+
 ## Important Terms
- - Add important term here
- - Add important term here
+
+### Boolean
+A value that is either True or False.
+
+### Conditional Statement
+Logic that controls code execution using conditions.
+
+---
 
 ## Common Mistakes
-- Add common mistake here
-- Add common mistake here
 
-## Action Items
-- Review this transcript
-- Review this transcript
-"""
+- Incorrect indentation
+- Confusing `=` with `==`
+- Forgetting colons after conditions
+
+---
+
+## Practice Tasks
+
+- Write 3 if/else statements
+- Create a boolean variable
+- Practice comparison operators
+
+---
+
+## Tags
+
+- python
+- conditionals
+- booleans
+- beginner
+'''
     return notes
 
 def save_notes(file_path: Path, content: str) -> None:

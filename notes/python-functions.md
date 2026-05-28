@@ -7,25 +7,60 @@ Functions are created with the def keyword. They can take parameters and return 
 Using functions helps organize code and avoid repeating yourself.
 
 
+---
+
 ## Key Concepts
 
-- Add key concept here
-- Add key concept here
-- Add key concept here
+- Main concept from transcript
+- Supporting concept
+- Important programming idea
 
-## Code example
+---
+
+## Code Example
+
 ```python
-def example():
-    print("Replace with lesson example")
+# Replace with transcript-related example
+
+is_logged_in = True
+
+if is_logged_in:
+    print("Welcome back!")
+else:
+    print("Please log in.")
 ```
+
+---
+
 ## Important Terms
- - Add important term here
- - Add important term here
+
+### Boolean
+A value that is either True or False.
+
+### Conditional Statement
+Logic that controls code execution using conditions.
+
+---
 
 ## Common Mistakes
-- Add common mistake here
-- Add common mistake here
 
-## Action Items
-- Review this transcript
-- Review this transcript
+- Incorrect indentation
+- Confusing `=` with `==`
+- Forgetting colons after conditions
+
+---
+
+## Practice Tasks
+
+- Write 3 if/else statements
+- Create a boolean variable
+- Practice comparison operators
+
+---
+
+## Tags
+
+- python
+- conditionals
+- booleans
+- beginner
