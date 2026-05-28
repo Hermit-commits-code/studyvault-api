@@ -2,10 +2,7 @@
 
 ## Summary
 
-Today we learned about Python functions. A function is a reusable block of code.
-Functions are created with the def keyword. They can take parameters and return values.
-Using functions helps organize code and avoid repeating yourself.
-
+Functions are created with the def keyword. They can take parameters and return values. Using functions helps organize code and avoid repeating yourself.
 
 ---
 

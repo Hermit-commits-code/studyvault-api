@@ -1,5 +1,6 @@
 from pathlib import Path
-from app.services.note_analyzer import detect_tags
+from app.services.note_analyzer import detect_tags, generate_summary, clean_transcript
+
 
 TRANSCRIPTS_DIR = Path("transcripts")
 NOTES_DIR = Path("notes")
@@ -9,13 +10,15 @@ def read_transcript(file_path: Path) -> str:
         return file.read()
 
 def create_notes(title: str, content: str) -> str:
-    tags = detect_tags(content)
+    cleaned_content = clean_transcript(content)
+    summary = generate_summary(cleaned_content)
+    tags = detect_tags(cleaned_content)
     tags_markdown="\n".join(f"- {tag}" for tag in tags)
     notes = f'''# {title}
 
 ## Summary
 
-{content}
+{summary}
 
 ---
 
