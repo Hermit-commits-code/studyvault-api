@@ -34,3 +34,24 @@ def get_notes(filename: str):
         "filename": filename,
         "content": content,
     }
+
+@router.get('/search')
+def search_notes(q: str):
+    results=[]
+
+    for note_file in NOTES_DIR.glob("*.md"):
+        with open(note_file, "r", encoding='utf-8')as file:
+            content = file.read()
+
+        if q.lower() in content.lower():
+            results.append({
+                "title": note_file.stem.replace("-", " ").title(),
+                "filename": note_file.name,
+                "path": str(note_file)
+            }
+        )
+    return{
+        "query": q,
+        "results": results,
+        "count": len(results),
+    }
