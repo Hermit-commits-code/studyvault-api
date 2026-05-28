@@ -13,12 +13,19 @@ Using functions helps organize code and avoid repeating yourself.
 - Add key concept here
 - Add key concept here
 
+## Code example
+```python
+def example():
+    print("Replace with lesson example")
+```
 ## Important Terms
+ - Add important term here
+ - Add important term here
 
-- Add important term here
-- Add important term here
+## Common Mistakes
+- Add common mistake here
+- Add common mistake here
 
 ## Action Items
-
 - Review this transcript
-- Refine these notes
+- Review this transcript
