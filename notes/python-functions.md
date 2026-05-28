@@ -60,7 +60,5 @@ Logic that controls code execution using conditions.
 
 ## Tags
 
-- python
-- conditionals
-- booleans
 - beginner
+- python

@@ -1,5 +1,5 @@
 from pathlib import Path
-
+from app.services.note_analyzer import detect_tags
 
 TRANSCRIPTS_DIR = Path("transcripts")
 NOTES_DIR = Path("notes")
@@ -9,6 +9,8 @@ def read_transcript(file_path: Path) -> str:
         return file.read()
 
 def create_notes(title: str, content: str) -> str:
+    tags = detect_tags(content)
+    tags_markdown="\n".join(f"- {tag}" for tag in tags)
     notes = f'''# {title}
 
 ## Summary
@@ -68,10 +70,7 @@ Logic that controls code execution using conditions.
 
 ## Tags
 
-- python
-- conditionals
-- booleans
-- beginner
+{tags_markdown}
 '''
     return notes
 
