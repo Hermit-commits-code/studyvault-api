@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    container_name: studyvault-api
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./notes:/app/notes
+      - ./transcripts:/app/transcripts
+
+    restart: unless-stopped
