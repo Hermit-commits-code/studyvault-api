@@ -22,6 +22,12 @@ def list_notes():
 
 @router.get("/notes/{filename}")
 def get_notes(filename: str):
+    if "/" in filename or "\\" in filename:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+
+    if not filename.endswith(".md"):
+        raise HTTPException(status_code=400, detail="Only markdown files are supported.")
+
     note_path = NOTES_DIR / filename
 
     if not note_path.exists():
