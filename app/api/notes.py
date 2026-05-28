@@ -37,6 +37,9 @@ def get_notes(filename: str):
 
 @router.get('/search')
 def search_notes(q: str):
+    if not q.strip():
+        raise HTTPException(status_code=400, detail="Search query cannot be empty")
+
     results=[]
 
     for note_file in NOTES_DIR.glob("*.md"):
