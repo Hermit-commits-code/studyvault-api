@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 
 router = APIRouter()
 
@@ -19,3 +19,18 @@ def list_notes():
             }
         )
     return {"notes": notes}
+
+@router.get("/notes/{filename}")
+def get_notes(filename: str):
+    note_path = NOTES_DIR / filename
+
+    if not note_path.exists():
+        raise HTTPException(status_code=404, detail="Note not found")
+
+    with open(note_path, "r", encoding="utf-8") as file:
+        content = file.read()
+
+    return{
+        "filename": filename,
+        "content": content,
+    }
