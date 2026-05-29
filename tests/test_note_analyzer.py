@@ -1,4 +1,4 @@
-from app.services.note_analyzer import detect_tags
+from app.services.note_analyzer import detect_tags, generate_summary
 
 
 def test_detects_boolean_tags():
@@ -23,3 +23,29 @@ def test_detects_comparison_operator_tags():
     tags = detect_tags(content)
 
     assert "comparison-operators" in tags
+
+
+def test_generate_summary_returns_text():
+    transcript = (
+        "Python uses numbers for arithmetic operations. "
+        "Expressions are evaluated and printed. "
+        "Variables will be introduced later."
+    )
+
+    summary = generate_summary(transcript)
+
+    assert isinstance(summary, str)
+    assert len(summary) > 0
+
+
+def test_summary_is_shorter_than_original_text():
+    transcript = (
+        "Python uses numbers for arithmetic operations. "
+        "Expressions are evaluated and printed. "
+        "Variables will be introduced later. "
+        "This lesson focuses on numerical computation."
+    )
+
+    summary = generate_summary(transcript)
+
+    assert len(summary) <= len(transcript)

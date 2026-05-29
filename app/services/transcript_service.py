@@ -4,6 +4,7 @@ from app.services.index_generator import generate_index
 from app.services.note_analyzer import (
     CONCEPT_DEFINITIONS,
     clean_transcript,
+    detect_suspicious_words,
     detect_tags,
     generate_summary,
 )
@@ -32,7 +33,21 @@ def create_notes(title: str, content: str) -> str:
 
     key_concepts = "\n".join(key_concepts_list)
     summary = generate_summary(cleaned_content)
+    suspicious_words = detect_suspicious_words(cleaned_content)
     frontmatter_tags = "\n".join(f"  - {tag}" for tag in tags)
+    review_section = ""
+    if suspicious_words:
+        review_items = "\n".join(f"- {word}" for word in suspicious_words)
+
+        review_section = f"""
+---
+
+## Transcript Cleanup Review
+
+The following words may contain transcription errors:
+
+{review_items}
+    """
 
     notes = f'''
 ---
@@ -94,6 +109,8 @@ Logic that controls code execution using conditions.
 - Practice comparison operators
 
 ---
+
+{review_section}
 
 ## Tags
 

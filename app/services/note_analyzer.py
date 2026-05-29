@@ -76,3 +76,17 @@ def generate_summary(content: str, max_sentences: int = 3) -> str:
         summary += "."
 
     return summary
+
+
+def detect_suspicious_words(content: str) -> list[str]:
+    words = content.split()
+
+    suspicious_words = []
+
+    for word in words:
+        cleaned_word = word.strip(".,!?;:()[]{}\"'")
+
+        if len(cleaned_word) >= 16:
+            suspicious_words.append(cleaned_word)
+
+    return sorted(set(suspicious_words))

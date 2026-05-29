@@ -1,4 +1,4 @@
-from app.services.note_analyzer import clean_transcript
+from app.services.note_analyzer import clean_transcript, detect_suspicious_words
 
 
 def test_removes_extra_whitespace():
@@ -29,3 +29,11 @@ def test_fixes_additional_word_merges():
     assert "So as" in result
     assert "is evaluated" in result
     assert "see the" in result
+
+def test_detects_suspicious_merged_words():
+    text = "This lesson explains variableassignment and expressionevaluation."
+
+    result = detect_suspicious_words(text)
+
+    assert "variableassignment" in result
+    assert "expressionevaluation" in result

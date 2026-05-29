@@ -1,23 +1,27 @@
 
 ---
-title: "Numbers And Operations"
+title: "Combine Different Conditional Statements"
 source_type: "transcript"
 tags:
   - beginner
+  - booleans
+  - comparison-operators
   - conditionals
   - python
 ---
 
-# Numbers And Operations
+# Combine Different Conditional Statements
 
 ## Summary
 
-Let's start to see how we can use numbers and also operations on numbers with Python. So this will help us when we start to work with variables. So as you have seen if I just type 2, okay, 2 is evaluated to 2, and is printed, so you can see the number 2.
+Okay, you can write your own conditionalstatements and get the Boolean value as a result. Now what you can also do it to test a combinationof multiple conditional statements, and let's seethat with an example. Okay, so everything we'vedone here is just one conditional statement everytime.
 
 ---
 
 ## Key Concepts
 - Beginner
+- **Booleans**: Boolean values represent True or False.
+- **Comparison Operators**: Comparison operators evaluate relationships between values.
 - **Conditionals**: Conditional statements control program flow based on conditions.
 - **Python**: Python is a high-level programming language.
 ---
@@ -70,12 +74,16 @@ Logic that controls code execution using conditions.
 
 The following words may contain transcription errors:
 
-- combineoperations
-- themultiplication
+- conditionalstatements
+- differentcombination
+- temperaturegreater
+- thepossibilities
     
 
 ## Tags
 
 - beginner
+- booleans
+- comparison-operators
 - conditionals
 - python

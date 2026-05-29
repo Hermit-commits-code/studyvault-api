@@ -67,6 +67,16 @@ Logic that controls code execution using conditions.
 
 ---
 
+
+---
+
+## Transcript Cleanup Review
+
+The following words may contain transcription errors:
+
+- list,number_list
+    
+
 ## Tags
 
 - beginner
