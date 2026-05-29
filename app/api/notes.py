@@ -84,6 +84,7 @@ def get_index():
         {
             "title": note_file.stem.replace("-", " ").title(),
             "filename": note_file.name,
+            "path": str(note_file),
         }
         for note_file in sorted(note_files)
     ]
