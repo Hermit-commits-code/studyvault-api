@@ -1,9 +1,17 @@
 import re
 
-def detect_tags(content: str)-> list[str]:
+COMMON_TRANSCRIPT_REPLACEMENTS = {
+    "Andthis": "And this",
+    "andthis": "and this",
+    "canmake": "can make",
+    "usingconditions": "using conditions",
+}
+
+
+def detect_tags(content: str) -> list[str]:
     text = content.lower()
 
-    tags=["python", "beginner"]
+    tags = ["python", "beginner"]
     if "boolean" in text or "true" in text or "false" in text:
         tags.append("booleans")
 
@@ -15,9 +23,13 @@ def detect_tags(content: str)-> list[str]:
 
     return sorted(set(tags))
 
-def clean_transcript(content: str)-> str:
+
+def clean_transcript(content: str) -> str:
     cleaned = content
-    cleaned = re.sub(r"\s+"," ", cleaned)
+
+    for incorrect, corrected in COMMON_TRANSCRIPT_REPLACEMENTS.items():
+        cleaned = cleaned.replace(incorrect, corrected)
+    cleaned = re.sub(r"\s+", " ", cleaned)
     cleaned = re.sub(r"([a-z])([A-Z])", r"\1 \2", cleaned)
 
     cleaned = re.sub(r"([a-zA-Z])(\d)", r"\1 \2", cleaned)
@@ -25,6 +37,7 @@ def clean_transcript(content: str)-> str:
     cleaned = re.sub(r"(\d)([a-zA-Z])", r"\1 \2", cleaned)
 
     return cleaned.strip()
+
 
 def generate_summary(content: str, max_sentences: int = 3) -> str:
     sentences = content.split(".")

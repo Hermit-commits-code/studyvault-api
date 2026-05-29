@@ -14,7 +14,7 @@ tags:
 
 ## Summary
 
-Let's come back a moment to the Boolean data type. In this lesson, I'm going to show you how you canmake some tests and get a Boolean as a result. Andthis Boolean will be the foundation for usingconditions and loops.
+Let's come back a moment to the Boolean data type. In this lesson, I'm going to show you how you can make some tests and get a Boolean as a result. And this Boolean will be the foundation for using conditions and loops.
 
 ---
 
