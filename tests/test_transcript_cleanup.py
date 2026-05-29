@@ -17,3 +17,15 @@ def test_fixes_common_transcript_artifacts():
     assert "And this" in result
     assert "can make" in result
     assert "using conditions" in result
+
+
+def test_fixes_additional_word_merges():
+    text = "alsooperations willhelp Soas isevaluated seethe"
+
+    result = clean_transcript(text)
+
+    assert "also operations" in result
+    assert "will help" in result
+    assert "So as" in result
+    assert "is evaluated" in result
+    assert "see the" in result

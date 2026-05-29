@@ -16,11 +16,8 @@ Functions are created with the def keyword. They can take parameters and return 
 ---
 
 ## Key Concepts
-
-- Main concept from transcript
-- Supporting concept
-- Important programming idea
-
+- Beginner
+- **Python**: Python is a high-level programming language.
 ---
 
 ## Code Example

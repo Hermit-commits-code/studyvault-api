@@ -1,7 +1,12 @@
 from pathlib import Path
 
 from app.services.index_generator import generate_index
-from app.services.note_analyzer import clean_transcript, detect_tags, generate_summary
+from app.services.note_analyzer import (
+    CONCEPT_DEFINITIONS,
+    clean_transcript,
+    detect_tags,
+    generate_summary,
+)
 
 TRANSCRIPTS_DIR = Path("transcripts")
 NOTES_DIR = Path("notes")
@@ -16,6 +21,16 @@ def create_notes(title: str, content: str) -> str:
     cleaned_content = clean_transcript(content)
     tags = detect_tags(cleaned_content)
     tags_markdown = "\n".join(f"- {tag}" for tag in tags)
+    key_concepts_list = []
+    for tag in tags[:5]:
+        if tag in CONCEPT_DEFINITIONS:
+            key_concepts_list.append(
+                f"- **{tag.replace('-', ' ').title()}**: {CONCEPT_DEFINITIONS[tag]}"
+            )
+        else:
+            key_concepts_list.append(f"- {tag.replace('-', ' ').title()}")
+
+    key_concepts = "\n".join(key_concepts_list)
     summary = generate_summary(cleaned_content)
     frontmatter_tags = "\n".join(f"  - {tag}" for tag in tags)
 
@@ -36,11 +51,7 @@ tags:
 ---
 
 ## Key Concepts
-
-- Main concept from transcript
-- Supporting concept
-- Important programming idea
-
+{key_concepts}
 ---
 
 ## Code Example

@@ -5,6 +5,19 @@ COMMON_TRANSCRIPT_REPLACEMENTS = {
     "andthis": "and this",
     "canmake": "can make",
     "usingconditions": "using conditions",
+    "alsooperations": "also operations",
+    "willhelp": "will help",
+    "Soas": "So as",
+    "isevaluated": "is evaluated",
+    "seethe": "see the",
+}
+
+CONCEPT_DEFINITIONS = {
+    "booleans": "Boolean values represent True or False.",
+    "conditionals": "Conditional statements control program flow based on conditions.",
+    "comparison-operators": "Comparison operators evaluate relationships between values.",
+    "python": "Python is a high-level programming language.",
+    "functions": "Functions are reusable blocks of code.",
 }
 
 

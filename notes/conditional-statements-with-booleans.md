@@ -19,11 +19,11 @@ Let's come back a moment to the Boolean data type. In this lesson, I'm going to 
 ---
 
 ## Key Concepts
-
-- Main concept from transcript
-- Supporting concept
-- Important programming idea
-
+- Beginner
+- **Booleans**: Boolean values represent True or False.
+- **Comparison Operators**: Comparison operators evaluate relationships between values.
+- **Conditionals**: Conditional statements control program flow based on conditions.
+- **Python**: Python is a high-level programming language.
 ---
 
 ## Code Example

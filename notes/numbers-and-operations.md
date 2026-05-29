@@ -12,16 +12,14 @@ tags:
 
 ## Summary
 
-Let's start to see how we can use numbers and alsooperations on numbers with Python. So this willhelp us when we start to work with variables. Soas you have seen if I just type 2, okay, 2 isevaluated to 2, and is printed, so you can seethe number 2.
+Let's start to see how we can use numbers and also operations on numbers with Python. So this will help us when we start to work with variables. So as you have seen if I just type 2, okay, 2 is evaluated to 2, and is printed, so you can see the number 2.
 
 ---
 
 ## Key Concepts
-
-- Main concept from transcript
-- Supporting concept
-- Important programming idea
-
+- Beginner
+- **Conditionals**: Conditional statements control program flow based on conditions.
+- **Python**: Python is a high-level programming language.
 ---
 
 ## Code Example
