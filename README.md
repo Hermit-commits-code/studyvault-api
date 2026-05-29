@@ -53,3 +53,23 @@ GET /search?q=functions
 ## Status
 MVP in progress
 
+## Docker
+
+Build and run with Docker Compose:
+
+```bash
+make docker-up
+```
+Stop containers
+```bash
+make docker-down
+```
+When running through Nginx locally, visit:
+`http://127.0.0.1:8080`
+
+## Deployment Script
+Run the deployment/update workflow:
+```bash
+./scripts/deploy.sh
+```
+
