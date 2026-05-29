@@ -41,7 +41,9 @@ def get_notes(filename: str):
         content = file.read()
 
     return {
+        "title": note_path.stem.replace("-", " ").title(),
         "filename": filename,
+        "path": str(note_path),
         "content": content,
     }
 
