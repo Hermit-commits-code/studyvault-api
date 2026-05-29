@@ -2,6 +2,8 @@ from pathlib import Path
 
 from fastapi import APIRouter, File, HTTPException, UploadFile
 
+from app.services.transcript_service import process_transcripts
+
 router = APIRouter()
 
 TRANSCRIPTS_DIR = Path("transcripts")
@@ -24,8 +26,10 @@ async def upload_transcript(file: UploadFile = File(...)):
     with open(file_path, "wb") as transcript_file:
         transcript_file.write(content)
 
+    process_transcripts()
+
     return {
-        "message": "Transcript uploaded successfully",
+        "message": "Transcript uploaded and processed successfully",
         "filename": file.filename,
         "path": str(file_path),
     }

@@ -1,20 +1,33 @@
 from pathlib import Path
-from app.services.note_analyzer import detect_tags, generate_summary, clean_transcript
 
+from app.services.index_generator import generate_index
+from app.services.note_analyzer import clean_transcript, detect_tags, generate_summary
 
 TRANSCRIPTS_DIR = Path("transcripts")
 NOTES_DIR = Path("notes")
 
+
 def read_transcript(file_path: Path) -> str:
-    with open(file_path, "r", encoding="utf-8") as file:
+    with open(file_path, encoding="utf-8") as file:
         return file.read()
+
 
 def create_notes(title: str, content: str) -> str:
     cleaned_content = clean_transcript(content)
-    summary = generate_summary(cleaned_content)
     tags = detect_tags(cleaned_content)
-    tags_markdown="\n".join(f"- {tag}" for tag in tags)
-    notes = f'''# {title}
+    tags_markdown = "\n".join(f"- {tag}" for tag in tags)
+    summary = generate_summary(cleaned_content)
+    frontmatter_tags = "\n".join(f"  - {tag}" for tag in tags)
+
+    notes = f'''
+---
+title: "{title}"
+source_type: "transcript"
+tags:
+{frontmatter_tags}
+---
+
+# {title}
 
 ## Summary
 
@@ -77,6 +90,7 @@ Logic that controls code execution using conditions.
 '''
     return notes
 
+
 def save_notes(file_path: Path, content: str) -> None:
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(content)
@@ -96,4 +110,4 @@ def process_transcripts() -> None:
         save_notes(output_file, notes_content)
 
         print(f"Created notes: {output_file}")
-
+    generate_index()

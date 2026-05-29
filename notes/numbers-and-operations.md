@@ -1,17 +1,18 @@
 
 ---
-title: "Python Functions"
+title: "Numbers And Operations"
 source_type: "transcript"
 tags:
   - beginner
+  - conditionals
   - python
 ---
 
-# Python Functions
+# Numbers And Operations
 
 ## Summary
 
-Functions are created with the def keyword. They can take parameters and return values. Using functions helps organize code and avoid repeating yourself.
+Let's start to see how we can use numbers and alsooperations on numbers with Python. So this willhelp us when we start to work with variables. Soas you have seen if I just type 2, okay, 2 isevaluated to 2, and is printed, so you can seethe number 2.
 
 ---
 
@@ -67,4 +68,5 @@ Logic that controls code execution using conditions.
 ## Tags
 
 - beginner
+- conditionals
 - python

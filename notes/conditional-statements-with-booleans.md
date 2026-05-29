@@ -1,3 +1,15 @@
+
+---
+title: "Conditional Statements With Booleans"
+source_type: "transcript"
+tags:
+  - beginner
+  - booleans
+  - comparison-operators
+  - conditionals
+  - python
+---
+
 # Conditional Statements With Booleans
 
 ## Summary
