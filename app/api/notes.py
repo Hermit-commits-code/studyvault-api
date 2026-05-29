@@ -74,15 +74,21 @@ def search_notes(q: str):
 
 @router.get("/index")
 def get_index():
-    index_path = NOTES_DIR / "index.md"
+    note_files = [
+        note_file
+        for note_file in NOTES_DIR.glob("*.md")
+        if note_file.name != "index.md"
+    ]
 
-    if not index_path.exists():
-        raise HTTPException(status_code=404, detail="Index not found")
-
-    with open(index_path, encoding="utf-8") as file:
-        content = file.read()
+    notes = [
+        {
+            "title": note_file.stem.replace("-", " ").title(),
+            "filename": note_file.name,
+        }
+        for note_file in sorted(note_files)
+    ]
 
     return {
-        "filename": "index.md",
-        "content": content,
+        "total_notes": len(notes),
+        "notes": notes,
     }
