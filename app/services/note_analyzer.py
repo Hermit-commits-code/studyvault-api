@@ -20,6 +20,12 @@ CONCEPT_DEFINITIONS = {
     "functions": "Functions are reusable blocks of code.",
 }
 
+VOCABULARY_TERMS = {
+    "boolean": "Represents a True or False value.",
+    "conditional statement": "Controls execution based on a condition.",
+    "comparison operator": "Compares two values and returns True or False.",
+}
+
 
 def detect_tags(content: str) -> list[str]:
     text = content.lower()
@@ -90,3 +96,15 @@ def detect_suspicious_words(content: str) -> list[str]:
             suspicious_words.append(cleaned_word)
 
     return sorted(set(suspicious_words))
+
+
+def extract_vocabulary(content: str) -> dict[str, str]:
+    content_lower = content.lower()
+
+    vocabulary = {}
+
+    for term, definition in VOCABULARY_TERMS.items():
+        if term in content_lower:
+            vocabulary[term.title()] = definition
+
+    return vocabulary

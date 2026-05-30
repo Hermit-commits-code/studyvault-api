@@ -43,6 +43,21 @@ else:
 
 ## Important Terms
 
+    ---
+
+    ## Vocabulary
+
+    ### Boolean
+Represents a True or False value.
+
+### Conditional Statement
+Controls execution based on a condition.
+
+### Comparison Operator
+Compares two values and returns True or False.
+
+    
+
 ### Boolean
 A value that is either True or False.
 

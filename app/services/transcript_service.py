@@ -6,6 +6,7 @@ from app.services.note_analyzer import (
     clean_transcript,
     detect_suspicious_words,
     detect_tags,
+    extract_vocabulary,
     generate_summary,
 )
 
@@ -34,6 +35,23 @@ def create_notes(title: str, content: str) -> str:
     key_concepts = "\n".join(key_concepts_list)
     summary = generate_summary(cleaned_content)
     suspicious_words = detect_suspicious_words(cleaned_content)
+    vocabulary = extract_vocabulary(cleaned_content)
+
+    vocabulary_section = ""
+
+    if vocabulary:
+        vocabulary_items = "\n\n".join(
+            f"### {term}\n{definition}" for term, definition in vocabulary.items()
+        )
+
+        vocabulary_section = f"""
+    ---
+
+    ## Vocabulary
+
+    {vocabulary_items}
+
+    """
     frontmatter_tags = "\n".join(f"  - {tag}" for tag in tags)
     review_section = ""
     if suspicious_words:
@@ -85,6 +103,7 @@ else:
 ---
 
 ## Important Terms
+{vocabulary_section}
 
 ### Boolean
 A value that is either True or False.

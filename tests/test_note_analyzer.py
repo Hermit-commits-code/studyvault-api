@@ -1,4 +1,4 @@
-from app.services.note_analyzer import detect_tags, generate_summary
+from app.services.note_analyzer import detect_tags, extract_vocabulary, generate_summary
 
 
 def test_detects_boolean_tags():
@@ -49,3 +49,12 @@ def test_summary_is_shorter_than_original_text():
     summary = generate_summary(transcript)
 
     assert len(summary) <= len(transcript)
+
+
+def test_extracts_vocabulary_terms():
+    transcript = "Booleans use True and False values in conditional statements."
+
+    vocabulary = extract_vocabulary(transcript)
+
+    assert "Boolean" in vocabulary
+    assert "Conditional Statement" in vocabulary

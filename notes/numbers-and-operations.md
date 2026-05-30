@@ -39,6 +39,7 @@ else:
 
 ## Important Terms
 
+
 ### Boolean
 A value that is either True or False.
 
