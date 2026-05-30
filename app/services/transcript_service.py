@@ -45,11 +45,11 @@ def create_notes(title: str, content: str) -> str:
         )
 
         vocabulary_section = f"""
-    ---
+---
 
-    ## Vocabulary
+## Vocabulary
 
-    {vocabulary_items}
+{vocabulary_items}
 
     """
     frontmatter_tags = "\n".join(f"  - {tag}" for tag in tags)
@@ -58,7 +58,6 @@ def create_notes(title: str, content: str) -> str:
         review_items = "\n".join(f"- {word}" for word in suspicious_words)
 
         review_section = f"""
----
 
 ## Transcript Cleanup Review
 
@@ -100,16 +99,8 @@ else:
     print("Please log in.")
 ```
 
----
-
 ## Important Terms
 {vocabulary_section}
-
-### Boolean
-A value that is either True or False.
-
-### Conditional Statement
-Logic that controls code execution using conditions.
 
 ---
 

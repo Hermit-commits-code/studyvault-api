@@ -35,16 +35,8 @@ else:
     print("Please log in.")
 ```
 
----
-
 ## Important Terms
 
-
-### Boolean
-A value that is either True or False.
-
-### Conditional Statement
-Logic that controls code execution using conditions.
 
 ---
 
@@ -65,7 +57,6 @@ Logic that controls code execution using conditions.
 ---
 
 
----
 
 ## Transcript Cleanup Review
 
